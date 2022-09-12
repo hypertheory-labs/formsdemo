@@ -5,7 +5,22 @@
   </div>
   <div>
     <label for="ssn">SSN</label>
-    <input type="text" id="ssn" formControlName="ssn" />
+    <input
+      type="text"
+      id="ssn"
+      (focus)="toggleShowSsn()"
+      (blur)="ssnBlur()"
+      formControlName="ssn"
+      [patterns]="ssnPattern"
+      [hiddenInput]="hideSsn"
+      mask="YYY-YY-SSSS"
+    />
+    <div>
+      <label for="hideSsn">
+        <input type="checkbox" [checked]="hideSsn" (click)="toggleShowSsn()" />
+        Show or Hide SSN
+      </label>
+    </div>
   </div>
   <div>
     <label for="cc">Credit Card Number</label>
@@ -17,3 +32,7 @@
   </div>
   <button type="submit">Submit</button>
 </form>
+
+<pre>
+  {{ form.value | json }}
+</pre>
