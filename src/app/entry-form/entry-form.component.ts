@@ -21,8 +21,6 @@ export class EntryFormComponent implements OnInit {
   form = new FormGroup<FormModel>({
     name: new FormControl<string>('', { nonNullable: true }),
     ssn: new FormControl<string>('', { nonNullable: true }),
-    cc: new FormControl<string>('', { nonNullable: true }),
-    birthdate: new FormControl<string>('', { nonNullable: true }),
   });
   constructor() {}
   ssnPattern = {
@@ -38,6 +36,4 @@ export class EntryFormComponent implements OnInit {
 type FormModel = {
   name: FormControl<string>;
   ssn: FormControl<string>;
-  cc: FormControl<string>;
-  birthdate: FormControl<string>;
 };
